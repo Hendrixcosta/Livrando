@@ -18,14 +18,7 @@ class Home extends CI_Controller  {
     
     public function index() {
         $this->load->view('header');
-        
-        $this->load->helper('js');
-        $this->data['js'] = load_js(array('script.js'));
-        
-        
-        $this->load->view('home', $this->data);
-        
-        
+        $this->load->view('home');
         $this->load->view('footer');
     }
 
