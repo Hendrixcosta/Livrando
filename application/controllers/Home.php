@@ -1,5 +1,6 @@
 <?php
 
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,8 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * and open the template in the editor.
  */
 
-/**
- * Description of Home
+/*
  *
  * @author Hendrix
  */
@@ -17,10 +17,43 @@ class Home extends CI_Controller  {
 
     
     public function index() {
-        $this->load->view('header');
-        $this->load->view('home');
-        $this->load->view('footer');
+        
+        $data = array();
+        
+        $data['titulo'] = "titulo1";
+        
+        //pd($data);
+        
+    $this->load->view('exibirlivros', $data);
+
+    
+    
+    //And now to perform a simple query to make sure it's working
+    
+
+
+/*          $query =  $this->db->query("SELECT title, description FROM bookdescriptions;");
+         $query =  $this->db->query("SELECT * FROM bookdescriptions;");
+           foreach ($query->result() as $row)
+        {
+               // echo "description == ". $row->description. "<br>";
+               //pd($row);
+        
+               
+ 
+        }
+    
+        
+     
+*/
+
+
+
     }
+    
+    
+
+
 
 
 

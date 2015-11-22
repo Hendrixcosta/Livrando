@@ -25,6 +25,8 @@ class Livro_model extends CI_Model {
     private $strLName;
     //put your code here
     
+    
+    
     function getISBN() {
         return $this->ISBN;
     }
