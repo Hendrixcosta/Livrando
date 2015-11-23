@@ -20,32 +20,20 @@ class Home extends CI_Controller  {
         
         $data = array();
         
-        $data['titulo'] = "titulo1";
+        $this->load->library("livrofactory");
         
-        //pd($data);
-        
-    $this->load->view('exibirlivros', $data);
+        // getlivros > 0 retorna 1 livro especifico Ex.: getLivro("0321344758")
+        // getlivros = o retorna array contendo todos livros
+        // getlivros < 0 retorna 3 livros aleatorios
+        $data = array("livros" => $this->livrofactory->getLivro("-3"));
+        $this->load->view('exibirlivros', $data);
 
     
     
-    //And now to perform a simple query to make sure it's working
+    
     
 
 
-/*          $query =  $this->db->query("SELECT title, description FROM bookdescriptions;");
-         $query =  $this->db->query("SELECT * FROM bookdescriptions;");
-           foreach ($query->result() as $row)
-        {
-               // echo "description == ". $row->description. "<br>";
-               //pd($row);
-        
-               
- 
-        }
-    
-        
-     
-*/
 
 
 

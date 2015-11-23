@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class PisoFactory {
+class PisoFactory_old {
 
     private $_ci;
 

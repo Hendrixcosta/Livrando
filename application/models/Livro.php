@@ -11,7 +11,7 @@
  *
  * @author Hendrix
  */
-class Livro_model extends CI_Model {
+class Livro extends CI_Model {
     private $ISBN;
     private $title;
     private $description;
