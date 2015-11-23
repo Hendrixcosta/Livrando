@@ -61,10 +61,7 @@ class Livrofactory {
      }
          
          
-       
-    
-    
-    public function getLivro ($isbn){
+   public function getLivro ($isbn){
         $query =  $this->_ci->db->query("SELECT * FROM bookdescriptions a JOIN bookauthorsbooks b ON a.ISBN = b.ISBN JOIN bookauthors c ON b.AuthorID = c.AuthorID JOIN bookcategoriesbooks d ON d.ISBN=a.ISBN JOIN bookcategories e ON d.CategoryID=e.CategoryID WHERE a.ISBN=" . $isbn. " ;");
             
             //$query =  $this->_ci->db->query("select *  from bookdescriptions where ISBN = 0321350316;");
@@ -75,7 +72,64 @@ class Livrofactory {
                 return $this->createObjectFromData($query->row());
             }
             return false;        
+    }    
+    
+    
+    public function buscaLivro ($palavra_buscada){
+        $query =  $this->_ci->db->query("SELECT * FROM `bookdescriptions` WHERE title like \"%".$palavra_buscada."%\";");
+            $livros= array();
+            if ($query->num_rows() > 0) {
+                $ISBNS = array();
+                
+                foreach ($query->result() as $row){
+                    $ISBNS[] = $row->ISBN;
+                }
+               
+                
+                foreach ($ISBNS as $id){
+                    $livros[]= $this->getLivro($id);
+                }
+                
+                return $livros;
+            }
+            return false;        
     }
+    
+        public function buscaCategoria ($palavra_buscada){
+        $query =  $this->_ci->db->query("SELECT a.ISBN FROM bookdescriptions a INNER JOIN bookcategoriesbooks b ON a.ISBN = b.ISBN INNER JOIN bookcategories c on b.CategoryID = c.CategoryID where c.CategoryName=\"%".$palavra_buscada."%\";");
+            $livros= array();
+            if ($query->num_rows() > 0) {
+                $ISBNS = array();
+                
+                foreach ($query->result() as $row){
+                    $ISBNS[] = $row->ISBN;
+                }
+               
+                
+                foreach ($ISBNS as $id){
+                    $livros[]= $this->getLivro($id);
+                }
+                
+                return $livros;
+            }
+            return false;        
+    }
+    
+    public function getCategorias (){
+        $query =  $this->_ci->db->query("SELECT DISTINCT c.CategoryName FROM bookdescriptions a INNER JOIN bookcategoriesbooks b ON a.ISBN = b.ISBN INNER JOIN bookcategories c on b.CategoryID = c.CategoryID ORDER BY c.CategoryName ;");
+            $categorias = array();
+            if ($query->num_rows() > 0) {
+                //Pass the data to our local function to create an object for us and return this new object
+                foreach ($query->result() as $row){
+                    $categorias[] = $row->CategoryName;
+                    
+                }
+                return $categorias;
+                    
+            }
+            return false;        
+    }
+    
     
     public function createObjectFromData($row) {
         //Cria um novo objeto piso com os dados da consulta

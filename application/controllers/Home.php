@@ -27,6 +27,11 @@ class Home extends CI_Controller  {
         // getlivros < 0 retorna 3 livros aleatorios
         $data = array("livros" => $this->livrofactory->getRandon());
         $this->load->view('exibirlivros', $data);
+        
+        
+        $this->load->view('caixadeBusca');
+        $data['categorias'] =  $this->livrofactory->getCategorias();
+        $this->load->view('caixadeNavegacao', $data);
 
     
     

@@ -18,19 +18,29 @@ class SearchBrowse extends CI_Controller  {
     
     public function index() {
         
+         $this->load->library("livrofactory");
+         $data=array();
+         
+        if (isset($_GET['tipo']) || !empty($_GET['tipo'])){
+        
+                if ($_GET['tipo'] == "busca"){
+                    //echo "buscar pela palavra ".$_GET['palavra_buscada'] ;
+                    
+                    $data ['livros']= $this->livrofactory->buscaLivro($_GET['palavra_buscada']);
+                    $this->load->view('exibirlivros', $data);
+                    //pd($data);                    
+                }
+                if ($_GET['tipo'] == "navegacao"){
+                    $data ['livros']= $this->livrofactory->buscaLivro($_GET['palavra_buscada']);
+                    $this->load->view('exibirlivros', $data);
+                }
+        }
         
         
-       
-        $this->load->view('caixadeBusca');
-
-    
-    
-    
-    
-
-
-
-
+        
+        
+        
+        
 
     }
     
