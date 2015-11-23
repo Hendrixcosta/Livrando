@@ -16,7 +16,11 @@
     
     <TR>
         <td></td>
-        <TD><?php echo $livro->getDescription() ?></TD>
+        <TD><?php 
+        $descricao = limita_palavra($livro->getDescription());
+        echo $descricao . "<a href=''> Mais... </a>";
+        
+        ?></TD>
     </TR>
     
  
