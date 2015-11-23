@@ -4,13 +4,16 @@
 
 ?>
 
-<table border="1" class="table table-condensed table-striped">
+<table border="2" class="table table-condensed table-striped"  width=600 height=300>
     <?php 
     
     foreach ($livros as $livro){
     ?>
     <TR>
-         <TD>Imagem</TD>
+         <TD><img src="http://yorktown.cbe.wwu.edu/sandvig/mis314/assignments/bookstore/bookimages/<?php
+         echo $livro->getISBN();
+         ?>.01.THUMBZZZ.jpg"/> 
+         </TD>
         <TD><?php echo $livro->getTitle() ?></TD>
     </TR>
     
@@ -18,7 +21,7 @@
         <td></td>
         <TD><?php 
         $descricao = limita_palavra($livro->getDescription());
-        echo $descricao . "<a href=''> Mais... </a>";
+        echo $descricao . "<a href=". $this->config->base_url("ProductPage") ."> ... Mais </a>";
         
         ?></TD>
     </TR>
@@ -30,3 +33,4 @@
     }
     ?>
 </TABLE>
+
