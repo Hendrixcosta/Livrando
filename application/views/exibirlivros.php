@@ -21,7 +21,7 @@
         <td></td>
         <TD><?php 
         $descricao = limita_palavra($livro->getDescription());
-        echo $descricao . "<a href=". $this->config->base_url("ProductPage") ."> ... Mais </a>";
+        echo $descricao . "<a href=". $this->config->base_url("ProductPage") ."/?isbn=". $livro->getISBN() ."  > ... Mais </a>";
         
         ?></TD>
     </TR>

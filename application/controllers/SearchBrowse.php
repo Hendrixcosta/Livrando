@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author Hendrix
  */
-class Home extends CI_Controller  {
+class SearchBrowse extends CI_Controller  {
     //put your code here
 
     
@@ -20,13 +20,8 @@ class Home extends CI_Controller  {
         
         
         
-        $this->load->library("livrofactory");
-        
-        // getlivros > 0 retorna 1 livro especifico Ex.: getLivro("0321344758")
-        // getlivros = o retorna array contendo todos livros
-        // getlivros < 0 retorna 3 livros aleatorios
-        $data = array("livros" => $this->livrofactory->getRandon());
-        $this->load->view('exibirlivros', $data);
+       
+        $this->load->view('caixadeBusca');
 
     
     

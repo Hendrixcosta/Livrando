@@ -17,16 +17,23 @@ class ProductPage extends CI_Controller  {
 
     
     public function index() {
-        
-        
-        
         $this->load->library("livrofactory");
+        
+        
+        if (isset($_GET['isbn'])|| !empty($_GET['isbn'])){
+            
+            
+             $data = array("livros" => $this->livrofactory->getLivro($_GET['isbn']));
+             
+            $this->load->view('productPage', $data);
+            
+        }
+        
         
         // getlivros > 0 retorna 1 livro especifico Ex.: getLivro("0321344758")
         // getlivros = o retorna array contendo todos livros
         // getlivros < 0 retorna 3 livros aleatorios
-        $data = array("livros" => $this->livrofactory->getLivro("-3"));
-        $this->load->view('exibirlivros', $data);
+       
 
     
     
