@@ -6,7 +6,7 @@ function pd($valor){
 	echo "</pre>";
 }
 
-function limita_palavra($text, $limit = 33)
+function limita_palavra($text, $limit = 40)
 {
 	$words = explode(" ",$text);
 	$str = "";

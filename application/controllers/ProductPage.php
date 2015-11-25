@@ -1,32 +1,23 @@
 <?php
 
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /*
  *
  * @author Hendrix
  */
 class ProductPage extends CI_Controller  {
-    //put your code here
 
-    
     public function index() {
         $this->load->library("livrofactory");
-        
-        
-        if (isset($_GET['isbn'])|| !empty($_GET['isbn'])){
-            
-            
-             $data = array("livros" => $this->livrofactory->getLivro($_GET['isbn']));
-             
+
+        if (isset($_GET['isbn']) && !empty($_GET['isbn'])){
+            $data = array("livros" => $this->livrofactory->getLivroIsbn($_GET['isbn']));
             $this->load->view('productPage', $data);
-            
+        }
+        
+        elseif(isset($_GET['title']) && !empty($_GET['title'])){
+            $data = array("livros" => $this->livrofactory->getLivroTitle($_GET['title']));
+            $this->load->view('productPage', $data);
         }
         
         
