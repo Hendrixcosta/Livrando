@@ -18,6 +18,8 @@ class SearchBrowse extends CI_Controller  {
                 $this->load->view('header', $data);
                 $data ['livros']= $this->livrofactory->buscaporCategoria($_GET['palavra_buscada']);
                 $this->load->view('buscaLivros', $data);
+                $data['categorias'] =  $this->livrofactory->getCategorias();
+                $this->load->view('caixadeNavegacao', $data);
                 $this->load->view('footer');
             }
             elseif(isset($_GET['tipo']) && $_GET['tipo'] =="palavra"){
@@ -25,6 +27,8 @@ class SearchBrowse extends CI_Controller  {
                 $this->load->view('header', $data);
                 $data ['livros']= $this->livrofactory->buscaporPalavra($_GET['palavra_buscada']);
                 $this->load->view('buscaLivros', $data);
+                $data['categorias'] =  $this->livrofactory->getCategorias();
+                $this->load->view('caixadeNavegacao', $data);
                 $this->load->view('footer');
             }
         }
@@ -33,6 +37,8 @@ class SearchBrowse extends CI_Controller  {
                 $this->load->view('header', $data);
                 $data ['livros']= "";
                 $this->load->view('buscaLivros', $data);
+                $data['categorias'] =  $this->livrofactory->getCategorias();
+                $this->load->view('caixadeNavegacao', $data);
                 $this->load->view('footer');
             }
     }

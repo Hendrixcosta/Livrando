@@ -19,20 +19,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!--carregando o javascript do Hendrix-->
         <script type='text/javascript' src="<?php echo base_url('assets/js/script.js'); ?>"></script>
-    
     </head>
     <body>
     <!-- div container onde vai toda a pagina -->
-    <div class="container-fluid col-sm-10 col-sm-push-1">
+    <div class="container-fluid col-sm-10 col-sm-push-1" style="background-color: lightgrey;">
         <header class="row" style="color:darkblue;background-color: lightblue;">
-            <div class="col-sm-9">
-                Aqui vai o Header da parada!!!<br />
-                Pode ser colocado em um arquivo separado...<br />
+            <div class="row">
+                <div class="col-sm-3 text-left">
+                    <a href="<?php echo base_url('Home')?>">  
+                    <img height="85" width="270"
+                    src="<?php echo base_url('assets/imagens/livrando02.jpg')?>" class="img-rounded" alt="Imagem Não Encontrada" />
+                    </a>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2>O melhor lugar para se comprar Livros de Informática</h2>
+                </div>
+                <div clas="col-sm-3 text-right">
+                    <a href="<?php echo $this->config->base_url('Login/carrinho');?>/?user=new">
+                    <img height="85" width="270"
+                    src="<?php echo base_url('assets/imagens/carrinho02.jpg')?>" class="img-rounded" alt="Imagem Não Encontrada" />
+                    </a>
+                </div>
             </div>
-            <div clas="col-sm-3">
-                <img height="150" width="150"
-                src="<?php echo base_url('assets/imagens/carrinho02.jpg')?>" class="img-responsive img-thumbnail" alt="Imagem Não Encontrada" />
-                <button type="button" class="btn btn-primary btn-large">Login</button>
+            <!-- div de Login e Logout -->
+            <div class="col-sm-10 text-right">
+                <h4>
+                    <?php if ($this->session->userdata('logado') === TRUE) {
+                    echo "Bem vindo ". $this->session->userdata('clienteFname') ." ". $this->session->userdata('clienteLname');
+                    }else{
+                    echo " <a href=" . $this->config->base_url('Login') .">Cadastre-se ou faça seu login.</a>";
+                    }?>
+                </h4>
+            </div>
+            <div class="col-sm-2 text-right">
+                <h4>
+                    <a href="<?php echo $this->config->base_url('Logout');?>">Sair do Sistema</a>
+                </h4>
             </div>
         </header>   
         <!-- div row onde vai todo o conteúdo -->

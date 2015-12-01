@@ -1,5 +1,5 @@
 <!-- div complementary onde vai todo o conteúdo lateral-->
-<div role="complementary" class="col-sm-4 col-sm-pull-8">
+<div role="complementary" class="col-sm-3 col-sm-pull-9">
     <!-- div que contém a busca por palavra-->
     <div class="row" style="padding: 50px 50px 50px 50px;">
         <p style="color:white;background-color: darkblue;text-align:center;">Search</p>

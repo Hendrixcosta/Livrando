@@ -1,8 +1,8 @@
 <!-- div main onde vai todo o conteúdo central-->
-<div role="main" class="container col-sm-8 col-sm-push-2">
+<div role="main" class="container col-sm-9 col-sm-push-3">
     <?php if(!empty($livros)){
         foreach ($livros as $livro){ ?>
-        <div class="row" style="padding: 50px 20px 10px 20px;">
+        <div class="row" style="padding: 50px 20px 5px 20px;">
             <a href= "<?php echo $this->config->base_url("ProductPage") ."/?title=". $livro->getTitle()?>">
             <?php echo $livro->getTitle() ?>
             </a>
