@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
  
- pd($lista_isbns);
+ //pd($lista_isbns);
 ?>
 
 		
@@ -53,18 +53,19 @@
                                         <th>Titulo</th>
                                         <th>Quantidade</th>
                                         <th>Preço</th>
-                                        <th>Total</th>
-                                        <th></th>
+                                        <th>Remover</th>
+                                        <th>Sub-Total</th>
+                                        
                                       </tr>
                                     </thead>
                                     <tbody>
                                       	<?php 	if (isset($livros)){
                                       	foreach ($livros as $livro){ ?>
                                       <tr>
-                                        <td><?php echo $livro->getTitle();?></td>
+                                        <td><a href="<?php echo $this->config->base_url("Navegar") ."/?isbn=". $livro->getISBN(); ?>"><?php echo $livro->getTitle();?></a></td>
                                         <td><?php echo $lista_isbns[$livro->getISBN()];?>  </td>
                                         <td><?php echo $livro->getPrice();?></td>
-                                        <td>20</td>
+                                        
                                         <td>
                                             
                                             	<a href="<?php echo $this->config->base_url('Cookie?acao=del&isbn=').$livro->getISBN();?>">
@@ -75,16 +76,53 @@
                                             
                                             
                                         </td>
+                                        <td><?php echo $lista_isbns[$livro->getISBN()] * $livro->getPrice(); ?></td>
                                       </tr>
                                       <?php }}else {
                                           
                                       }?>
                                     </tbody>
                                   </table>
-                                </div>
+                        
+                        <div class="row">
+                            <div class="alert alert-info col-md-10">
+                                <h4>Total da Compra:</h4>
                             </div>
-
+                            
+                            <div class="alert alert-info col-md-2">
+                                <?php  
+                                if (isset($livros)){
+                                    $soma=0;
+                                    foreach ($livros as $livro){
+                                        $soma = $soma + $lista_isbns[$livro->getISBN()] * $livro->getPrice();
+                                    }
+                                }
+                                echo $soma;
+                            ?>
+                            </div>
                         </div>
+                        
+                       
+                            <?php
+                            if ($soma>0){
+                            ?>
+                                
+                             <div>
+                                <a href="<?php echo $this->config->base_url('Checkout');?>">
+                            <img  style="margin-left: 300px" height="35" width=""
+							                    src="<?php echo base_url('assets/imagens/checkuot.png')?>" class="img-rounded" alt="Imagem Não Encontrada" />
+							                    
+							                    </a>
+                         </div>  
+                            
+                            <?php
+                            }
+                            
+                            ?>
+                         
+                        
+                        
+                        
 
                     	
                     	

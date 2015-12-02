@@ -26,7 +26,7 @@ class Cookie extends CI_Controller  {
             } 
             //pd ($lista_isbns);
             set_cookie("lista_isbns", serialize($lista_isbns), (time() + (3 * 24 * 3600)));
-            header('Location: https://com222-hendrixcosta.c9.io/Carrinho');
+            header('Location: Carrinho');
             
         }
         else {
@@ -57,7 +57,7 @@ class Cookie extends CI_Controller  {
                     // echo "Criado e Adicionado!";
                     
                 }
-               header('Location: https://com222-hendrixcosta.c9.io/Carrinho');
+               header('Location: Carrinho');
             }
             
         }

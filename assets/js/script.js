@@ -3,6 +3,14 @@
 
 
 
+function login(){
+           $("#myModal").modal('show', {keyboard: true});
+    
+} 
+
+
+
+
 function ola (){
     alert ("ola");
 }

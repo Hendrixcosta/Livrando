@@ -11,15 +11,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
         <!--Título da página-->
         <title><?php echo $titulo ?></title>
-        <!--carregando o bootstrap-->
-        <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
-        <!--carregando o javascript do projeto-->
-        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+        
+        
         <!--carregando o ajax -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!--carregando o javascript do Hendrix-->
         <script type='text/javascript' src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
         <script type='text/javascript' src="<?php echo base_url('assets/js/script.js'); ?>"></script>
+        <!--carregando o bootstrap-->
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+        <!--carregando o javascript do projeto-->
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
         <!--carregando o CSS do Hendrix-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/estilo.css'); ?>">
         
@@ -47,9 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="col-sm-3">
-                    <a href=" <?php echo base_url('login')?>" >
+                   <a class="login-btn" onclick="login();">
+                       <!--  <a href=" <?php echo base_url('login')?>" >-->
                     <img width="35px" style="margin-top:30px" src="<?php echo base_url('assets/imagens/login.png')?>"  alt="Imagem Não Encontrada" />
                     </a>    
+                    
+                    
+                    
+                    
                     <a href="<?php echo base_url('carrinho')?>" >
                      <img width="35px" style="margin-top:30px; margin-left:30px " src="<?php echo base_url('assets/imagens/carrinho.png')?>"  alt="Imagem Não Encontrada" /></a>
                      
@@ -67,3 +74,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- div row onde vai todo o conteúdo -->
         
         <div class="row">
+            
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form  class="form-horizontal" action="<?php echo base_url()."login";?>" method="post" >
+                        <div class="form-group">
+                          <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+                          <input type="text" class="form-control" name="email" placeholder="Email@email">
+                        </div>
+                        
+                          <input type="hidden" name="submit" value="login">
+                          <button  type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                      <p>Não é membro?<a href=<?php echo base_url("Login");?> ><h4>Cadastre!</h4></a></p>
+
+                    </div>
+                  </div>
+                </div>
+              </div> 

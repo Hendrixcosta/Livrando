@@ -27,7 +27,9 @@ class Carrinho extends CI_Controller {
                     
                    $data ["livros"][] = $this->livrofactory->getLivroIsbn($isbn);
                 }
-                $data['quantidade'] = "Você tem ". count($lista_isbns). " Livros no carrinho";
+                $count=0;
+                foreach ($lista_isbns as $isbn){$count = $count + $isbn;}
+                $data['quantidade'] = "Você tem ".$count . " Livros no carrinho";
                 $data['lista_isbns'] = $lista_isbns;
                 //pd($data);pd($lista_isbns);
                 $this->load->view('carrinho', $data);

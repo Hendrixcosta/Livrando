@@ -141,11 +141,20 @@
             }
         }
         //** fim da função "confirm_form"
+        
+        
+        
         /* Main Program */
-        if (empty($_POST["submit"]) || $_POST['submit'] == 'cadastrar') {
-            print_form("", "", "", "", "", "", "");
+        
+        if (!isset($email)){
+            $email="";
+        }
+        
+        if (empty($_POST["submit"]) || $_POST['submit'] == 'cadastrar' || isset($email)) {
+            print_form("", "", $email, "", "", "", "");
         } else {
-            check_form($_POST["fname"], $_POST["lname"], $_POST["email"], $_POST["street"], $_POST["city"], $_POST["state"], $_POST["zip"]);
+            //check_form($_POST["fname"], $_POST["lname"], $_POST["email"], $_POST["street"], $_POST["city"], $_POST["state"], $_POST["zip"]);
+            
         }
         ?>
 </div>
