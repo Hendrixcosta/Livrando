@@ -1,11 +1,20 @@
     <!-- div que fecha a row do conteúdo aberto no header -->
     </div>
-    <footer class="row" style="color:darkblue;background-color: lightblue;">
-        <div class="text-center">
-            <a href="<?php echo base_url('Contato')?>">   Contato   </a>
+    </div>
+    
+    <footer class="row">
+        <div class="col-md-12 rodape">
+            <div class="copyright">
+			<div class="container">
+				<div class="row">
+					
+						<p>&copy; Todos os direitos reservados.</p>
+					
+				</div>
+			</div>
+            </div>
         </div>
     </footer>
     <!-- div que fecha o container do header -->
-    </div>
-    </body>
+    
 </html>

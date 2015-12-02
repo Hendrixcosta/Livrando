@@ -12,15 +12,18 @@ class SearchBrowse extends CI_Controller  {
         $data=array();
     
         if (isset($_GET['palavra_buscada']) && !empty($_GET['palavra_buscada'])){
+            
             if (isset($_GET['tipo']) && $_GET['tipo'] == "categoria" ){
                 $data['titulo'] = 'Busca por '.$_GET['palavra_buscada'];
                 $this->load->view('header', $data);
                 
                 $data ['livros']= $this->livrofactory->buscaporCategoria($_GET['palavra_buscada']);
-                $this->load->view('exibirlivros', $data);
+                
 
                 $data['categorias'] =  $this->livrofactory->getCategorias();
-                $this->load->view('caixadeNavegacao', $data);
+                //$this->load->view('caixadeNavegacao', $data);
+                
+                $this->load->view('livros_view', $data);
 
                 $this->load->view('footer');
             }
@@ -29,10 +32,11 @@ class SearchBrowse extends CI_Controller  {
                 $this->load->view('header', $data);
 
                 $data ['livros']= $this->livrofactory->buscaporPalavra($_GET['palavra_buscada']);
-                $this->load->view('exibirlivros', $data);
+                
 
                 $data['categorias'] =  $this->livrofactory->getCategorias();
-                $this->load->view('caixadeNavegacao', $data);
+                $this->load->view('livros_view', $data);
+                //$this->load->view('caixadeNavegacao', $data);
 
                 $this->load->view('footer');
             }
@@ -42,10 +46,11 @@ class SearchBrowse extends CI_Controller  {
                 $this->load->view('header', $data);
 
                 $data ['livros']= "";
-                $this->load->view('exibirlivros', $data);
+               
 
                 $data['categorias'] =  $this->livrofactory->getCategorias();
-                $this->load->view('caixadeNavegacao', $data);
+                //$this->load->view('caixadeNavegacao', $data);
+                 $this->load->view('livros_view', $data);
 
                 $this->load->view('footer');
             }

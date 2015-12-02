@@ -19,43 +19,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!--carregando o javascript do Hendrix-->
         <script type='text/javascript' src="<?php echo base_url('assets/js/script.js'); ?>"></script>
+        <!--carregando o CSS do Hendrix-->
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/estilo.css'); ?>">
+        
     </head>
     <body>
     <!-- div container onde vai toda a pagina -->
-    <div class="container-fluid col-sm-10 col-sm-push-1" style="background-color: lightgrey;">
-        <header class="row" style="color:darkblue;background-color: lightblue;">
-            <div class="row">
-                <div class="col-sm-3 text-left">
-                    <a href="<?php echo base_url('Home')?>">  
-                    <img height="85" width="270"
-                    src="<?php echo base_url('assets/imagens/livrando02.jpg')?>" class="img-rounded" alt="Imagem Não Encontrada" />
-                    </a>
+    
+    
+
+    <!--primeira linha responsável só pelo cabeçalho-->
+        <header class="row cabecalho">
+            
+            <div class="container col-sm-10 col-sm-push-2">
+            
+                <div class="col-sm-4" style="width: 310px">
+                    <img width="300px" src="<?php echo base_url('assets/imagens/logo.png')?>"  alt="Imagem Não Encontrada" />
                 </div>
-                <div class="col-sm-6 text-center">
-                    <h2>O melhor lugar para se comprar Livros de Informática</h2>
+
+                <div class="col-sm-3 main-busca" style="margin-top: 30px">    
+                    <div class="input-group">
+                        <input class="form-control"   placeholder="Busca"  style="width: 200px ">
+                         <button type="button" class="btn btn-primary btn-large">Buscar</button>
+                    </div>
                 </div>
-                <div clas="col-sm-3 text-right">
-                    <a href="<?php echo $this->config->base_url('Carrinho');?>">
-                    <img height="85" width="270"
-                    src="<?php echo base_url('assets/imagens/carrinho02.jpg')?>" class="img-rounded" alt="Imagem Não Encontrada" />
-                    </a>
+
+                <div class="col-sm-3">
+                    <a href=" <?php echo base_url('login')?>" >
+                    <img width="35px" style="margin-top:30px" src="<?php echo base_url('assets/imagens/login.png')?>"  alt="Imagem Não Encontrada" />
+                    </a>    
+                    <a href="<?php echo base_url('carrinho')?>" >
+                     <img width="35px" style="margin-top:30px; margin-left:30px " src="<?php echo base_url('assets/imagens/carrinho.png')?>"  alt="Imagem Não Encontrada" /></a>
+                     
                 </div>
-            </div>
-            <!-- div de Login e Logout -->
-            <div class="col-sm-10 text-right">
-                <h4>
-                    <?php if ($this->session->userdata('logado') === TRUE) {
-                    echo "Bem vindo ". $this->session->userdata('clienteFname') ." ". $this->session->userdata('clienteLname');
-                    }else{
-                    echo " <a href=" . $this->config->base_url('Login') .">Cadastre-se ou faça seu login.</a>";
-                    }?>
-                </h4>
-            </div>
-            <div class="col-sm-2 text-right">
-                <h4>
-                    <a href="<?php echo $this->config->base_url('Logout');?>">Sair do Sistema</a>
-                </h4>
             </div>
         </header>   
+    
+    
+    
+    
+    <!-- Vou utilliza só o centro da pagina ignorando a primeira e ultima colunas-->
+    <div class="container col-sm-10 col-sm-push-1">
+        
+        
         <!-- div row onde vai todo o conteúdo -->
+        
         <div class="row">

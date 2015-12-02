@@ -13,13 +13,15 @@ class Home extends CI_Controller  {
         $data['titulo'] = 'Livrando Bookstore';
         $this->load->view('header', $data);
 
+        
         $data = array('livros' => $this->livrofactory->getRandon());
-        $this->load->view('exibirlivros', $data);
-        
-
         $data['categorias'] =  $this->livrofactory->getCategorias();
-        $this->load->view('caixadeNavegacao', $data);
         
+        
+        //pd($data);
+        
+        $this->load->view('livros_view', $data);
+        //$this->load->view('caixadeNavegacao', $data);
         $this->load->view('footer');
 
     }
