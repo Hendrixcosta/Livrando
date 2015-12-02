@@ -5,6 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+ 
+ pd($lista_isbns);
 ?>
 
 		
@@ -60,12 +62,12 @@
                                       	foreach ($livros as $livro){ ?>
                                       <tr>
                                         <td><?php echo $livro->getTitle();?></td>
-                                        <td>1</td>
+                                        <td><?php echo $lista_isbns[$livro->getISBN()];?>  </td>
                                         <td><?php echo $livro->getPrice();?></td>
                                         <td>20</td>
                                         <td>
                                             
-                                            	<a href="<?php echo $this->config->base_url('Carrinho/del/')."/".$livro->getISBN();?>">
+                                            	<a href="<?php echo $this->config->base_url('Cookie?acao=del&isbn=').$livro->getISBN();?>">
 							                   	<img height="30" width=""
 							                    src="<?php echo base_url('assets/imagens/del.png')?>" class="img-rounded" alt="Imagem Não Encontrada" />
 							                    

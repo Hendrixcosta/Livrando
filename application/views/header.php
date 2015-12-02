@@ -33,15 +33,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <header class="row cabecalho">
             
             <div class="container col-sm-10 col-sm-push-2">
-            
+            <a href="<?php echo base_url('')?>">
                 <div class="col-sm-4" style="width: 310px">
+                    
                     <img width="300px" src="<?php echo base_url('assets/imagens/logo.png')?>"  alt="Imagem Não Encontrada" />
-                </div>
+                </div></a>
 
                 <div class="col-sm-3 main-busca" style="margin-top: 30px">    
                     <div class="input-group">
-                        <input class="form-control"   placeholder="Busca"  style="width: 150px">
-                         <button type="button" class="btn btn-primary btn-large">Buscar</button>
+                        <input class="form-control"   placeholder="Buscar em todo site"  style="width: 150px">
+                         <button type="button" class="btn btn-primary btn-large">Buscar </button>
                     </div>
                 </div>
 

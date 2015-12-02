@@ -66,7 +66,7 @@
 										
 										<div class="col-md-3" style="padding-left: 40px">
 											
-											<a href="<?php echo $this->config->base_url('Carrinho?isbn=').$livro->getISBN();?>">
+											<a href="<?php echo $this->config->base_url('Cookie?acao=add&isbn=').$livro->getISBN();?>">
 							                   	<img onclick="ola();" height="50" width=""
 							                    src="<?php echo base_url('assets/imagens/add.png')?>" class="img-rounded" alt="Imagem Não Encontrada" />
 							                    <p>Adicionar ao Carrinho!
