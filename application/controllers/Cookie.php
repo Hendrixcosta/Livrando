@@ -55,8 +55,9 @@ class Cookie extends CI_Controller  {
                     $lista_isbns[$isbn] = 1;
                     set_cookie("lista_isbns", serialize($lista_isbns), (time() + (3 * 24 * 3600)));
                     // echo "Criado e Adicionado!";
+                    
                 }
-                //header('Location: https://com222-hendrixcosta.c9.io/Carrinho');
+               header('Location: https://com222-hendrixcosta.c9.io/Carrinho');
             }
             
         }
