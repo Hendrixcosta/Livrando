@@ -42,29 +42,51 @@
 					
                                         
                     <div id="conteudo" class="col-md-9">
-                    	<?php foreach ($livros as $livro){ ?>
-								<div class="artigo" role="article">
+                    	<?php //foreach ($livros as $livro){ ?>
+							
 									<!-- div row conteudo -->
 									<div class="row">
+										<h3><a href="#"> <?php echo $livro->getTitle() ?></a></h3>
 										
-										<div class="col-md-1"><br><br>
-											<a href="<?php echo $this->config->base_url("Navegar") ."/?isbn=". $livro->getISBN(); ?> " title="">
+										<div class="col-md-2"><br><br>
+											<a href="http://yorktown.cbe.wwu.edu/sandvig/mis314/assignments/bookstore/bookimages/<?php
+                                             		echo $livro->getISBN(); ?>.01.LZZZZZZZ.jpg" title="">
 												<img src="http://yorktown.cbe.wwu.edu/sandvig/mis314/assignments/bookstore/bookimages/<?php
-                                             		echo $livro->getISBN(); ?>.01.THUMBZZZ.jpg" class=" " alt="Imagem Não Encontrada"/>
+                                             		echo $livro->getISBN(); ?>.01.MZZZZZZZ.jpg" class=" " alt="Imagem Não Encontrada"/>
 											</a>
 										</div>
                                         
-                                        <div class="col-md-8" style="padding-left: 40px">
-											<h3><a href="<?php echo $this->config->base_url("Navegar") ."/?isbn=". $livro->getISBN(); ?>"> <?php echo $livro->getTitle() ?></a></h3>
-											<p><?php 
-													$descricao = limita_palavra($livro->getDescription());
-                                                    echo $descricao . "<a href=". $this->config->base_url("Navegar") ."/?isbn=". $livro->getISBN() ."  > ... Mais </a>"; ?></p>
+                                        <div class="col-md-3" style="padding-left: 40px">
+											<p><b><h4>Preço: </b> 	<?php echo $livro->getPrice(); ?>
+											<p><b><h4>Publisher: </b> 	<?php echo $livro->getPublisher (); ?>
+											<p><b><h4>Páginas: </b> 	<?php echo $livro->getPages (); ?>
+											<p><b><h4>Pupdate: </b> 	<?php echo $livro->getPubdate (); ?>
+										
 										</div>
+										
+										<div class="col-md-3" style="padding-left: 40px">
+											
+											<a href="<?php echo $this->config->base_url('Carrinho?isbn=').$livro->getISBN();?>">
+							                   	<img onclick="ola();" height="50" width=""
+							                    src="<?php echo base_url('assets/imagens/add.png')?>" class="img-rounded" alt="Imagem Não Encontrada" />
+							                    <p>Adicionar ao Carrinho!
+							                    </a>
+                    
+											
+										
+										</div>
+										
+											
 									
 									</div>
+									<div class="row">
+										<div class="col-md-8"><br>
+											<?php echo $livro->getDescription() ?>
+										</div>
+									</div>
 									<!-- fim da div row conteudo -->
-								</div>
-                     	<?php } ?>
+							
+                     	<?php //} ?>
 
 
 					</div><!-- div conteudo -->

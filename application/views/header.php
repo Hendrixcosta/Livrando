@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--carregando o ajax -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!--carregando o javascript do Hendrix-->
+        <script type='text/javascript' src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
         <script type='text/javascript' src="<?php echo base_url('assets/js/script.js'); ?>"></script>
         <!--carregando o CSS do Hendrix-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/estilo.css'); ?>">
@@ -39,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <div class="col-sm-3 main-busca" style="margin-top: 30px">    
                     <div class="input-group">
-                        <input class="form-control"   placeholder="Busca"  style="width: 200px ">
+                        <input class="form-control"   placeholder="Busca"  style="width: 150px">
                          <button type="button" class="btn btn-primary btn-large">Buscar</button>
                     </div>
                 </div>
