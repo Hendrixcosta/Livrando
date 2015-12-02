@@ -7,7 +7,7 @@
                 <div id="titulo" class="col-sm-12">
                     <h3>Por favor, entre com seus dados</h3>
                 </div>
-                <form method = "POST" action = "<?php echo base_url("Login")?>" class="form-group col-sm-10 push-sm-2" role="form">
+                <form id="formulario" method="POST" action = "<?php echo base_url("Valida")?>" class="form-group col-sm-10 push-sm-2 formulario" role="form">
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label class="control-label col-sm-12 text-center" for="fname">First Name:</label>
