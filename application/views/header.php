@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h2>O melhor lugar para se comprar Livros de Informática</h2>
                 </div>
                 <div clas="col-sm-3 text-right">
-                    <a href="<?php echo $this->config->base_url('Login/carrinho');?>/?user=new">
+                    <a href="<?php echo $this->config->base_url('Carrinho');?>">
                     <img height="85" width="270"
                     src="<?php echo base_url('assets/imagens/carrinho02.jpg')?>" class="img-rounded" alt="Imagem Não Encontrada" />
                     </a>

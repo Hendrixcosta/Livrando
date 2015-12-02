@@ -8,10 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller  {
 
     public function index() {
-        $this->load->library("clientefactory");
 
         if(isset($_POST['submit']) && $_POST['submit'] == 'login'){
 
+            if(trim($_POST['email']) == Null){
+                redirect('Home');
+            }
             $cliente = new Cliente();
             $cliente = $this->clientefactory->getByEmail($_POST['email']);
             if($cliente == false){
@@ -30,7 +32,6 @@ class Login extends CI_Controller  {
             
             $this->load->view('cadastraCliente');
             
-            $this->load->library('livrofactory');
             $data['categorias'] =  $this->livrofactory->getCategorias();
             $this->load->view('caixadeNavegacao', $data);
             
@@ -42,7 +43,6 @@ class Login extends CI_Controller  {
             
             $this->load->view('cadastraCliente');
             
-            $this->load->library('livrofactory');
             $data['categorias'] =  $this->livrofactory->getCategorias();
             $this->load->view('caixadeNavegacao', $data);
             
@@ -54,7 +54,6 @@ class Login extends CI_Controller  {
             
             $this->load->view('login');
             
-            $this->load->library('livrofactory');
             $data['categorias'] =  $this->livrofactory->getCategorias();
             $this->load->view('caixadeNavegacao', $data);
             

@@ -13,7 +13,6 @@ class Home extends CI_Controller  {
         $data['titulo'] = 'Livrando Bookstore';
         $this->load->view('header', $data);
 
-        $this->load->library('livrofactory');
         $data = array('livros' => $this->livrofactory->getRandon());
         $this->load->view('exibirlivros', $data);
         

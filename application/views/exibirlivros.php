@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-10" style="text-align:justify;">
             <?php $descricao = limita_palavra($livro->getDescription());
-            echo $descricao . "<a href=". $this->config->base_url("ProductPage") ."/?isbn=". $livro->getISBN() ."  > ... Mais </a>"; ?>
+            echo $descricao . "<a href=". $this->config->base_url("ProductPage") ."/?title=". $livro->getTitle() ."  > ... Mais </a>"; ?>
          </div>
     </div>
     <?php } ?>

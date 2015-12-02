@@ -13,7 +13,6 @@ class Contato extends CI_Controller  {
         
         $this->load->view('contato');
         
-        $this->load->library('livrofactory');
         $data['categorias'] =  $this->livrofactory->getCategorias();
         $this->load->view('caixadeNavegacao', $data);
         

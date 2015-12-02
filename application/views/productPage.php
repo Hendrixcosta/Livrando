@@ -21,6 +21,7 @@
             <p><b>Pages: </b><?php echo $livros->getPages();?></p>
             <p><b>Edition: </b><?php echo $livros->getEdition();?></p>
             <p><b>Price: </b><?php echo $livros->getPrice();?></p>
+            <p><a href="<?php echo base_url('Carrinho/add')?>\?isbn=<?php echo $livros->getISBN();?>">Adicionar ao carrinho</a></p>
             </div>
             <div class="col">
                 
