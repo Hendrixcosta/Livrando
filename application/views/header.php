@@ -34,32 +34,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--primeira linha responsável só pelo cabeçalho-->
         <header class="row cabecalho">
             
-            <div class="container col-sm-10 col-sm-push-2">
-            <a href="<?php echo base_url('')?>">
-                <div class="col-sm-4" style="width: 310px">
-                    
+            <div class="container col-sm-12 text-center">
+                <div class="col-sm-3" style="padding: 0px 0px 0px 200px;" >
+                    <a href="<?php echo base_url('')?>">
                     <img width="300px" src="<?php echo base_url('assets/imagens/logo.png')?>"  alt="Imagem Não Encontrada" />
-                </div></a>
+                    </a>
+                </div>
 
-                <div class="col-sm-3 main-busca" style="margin-top: 30px">    
+                <div class="col-sm-4" style="padding: 30px 0px 0px 200px;" >
                     <div class="input-group">
                         <input class="form-control"   placeholder="Buscar em todo site"  style="width: 150px">
                          <button type="button" class="btn btn-primary btn-large">Buscar </button>
                     </div>
                 </div>
 
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                    <a class="login-btn" onclick="login();">
                        <!--  <a href=" <?php echo base_url('login')?>" >-->
                     <img width="35px" style="margin-top:30px" src="<?php echo base_url('assets/imagens/login.png')?>"  alt="Imagem Não Encontrada" />
-                    </a>    
-                    
-                    
-                    
+                    </a>
                     
                     <a href="<?php echo base_url('carrinho')?>" >
                      <img width="35px" style="margin-top:30px; margin-left:30px " src="<?php echo base_url('assets/imagens/carrinho.png')?>"  alt="Imagem Não Encontrada" /></a>
-                     
+                </div>
+                    
+            <!-- div de Login e Logout -->
+            <div class="col-sm-3 text-left"  style="color:white;">
+                <h4>
+                    <?php if ($this->session->userdata('logado') === TRUE) {
+                    echo "Bem vindo ". $this->session->userdata('clienteFname') ." ". $this->session->userdata('clienteLname');
+                    }else{
+                    echo " Cadastre-se ou faça seu login.";
+                    }?>
+                </h4>
+                <h4>
+                    <a href="<?php echo $this->config->base_url('Logout');?>">Sair do Sistema</a>
+                </h4>
+            </div>
+
+
                 </div>
             </div>
         </header>   
@@ -85,13 +98,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Login</h4>
                     </div>
                     <div class="modal-body">
-                      <form  class="form-horizontal" action="<?php echo base_url()."login";?>" method="post" >
+                      <form  class="form-horizontal" action="<?php echo base_url("Login");?>" method="post" >
                         <div class="form-group">
                           <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
                           <input type="text" class="form-control" name="email" placeholder="Email@email">
                         </div>
                         
-                          <input type="hidden" name="submit" value="login">
                           <button  type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
                       </form>
                     </div>

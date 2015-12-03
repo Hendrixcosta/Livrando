@@ -14,6 +14,7 @@ class SearchBrowse extends CI_Controller  {
         if (isset($_GET['palavra_buscada']) && !empty($_GET['palavra_buscada'])){
             
             if (isset($_GET['tipo']) && $_GET['tipo'] == "categoria" ){
+                
                 $data['titulo'] = 'Busca por '.$_GET['palavra_buscada'];
                 $this->load->view('header', $data);
                 
@@ -31,7 +32,12 @@ class SearchBrowse extends CI_Controller  {
                 $data['titulo'] = 'Busca por '.$_GET['palavra_buscada'];
                 $this->load->view('header', $data);
 
-                $data ['livros']= $this->livrofactory->buscaporPalavra($_GET['palavra_buscada']);
+                if ($_GET['palavra_buscada']==""){
+                    $data['livros']=$this->livrofactory->buscaporPalavra("web");
+                }else {
+                    $data ['livros']= $this->livrofactory->buscaporPalavra($_GET['palavra_buscada']);
+                }
+                
                 
 
                 $data['categorias'] =  $this->livrofactory->getCategorias();

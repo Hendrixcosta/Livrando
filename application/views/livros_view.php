@@ -1,13 +1,3 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
-
-		
 		<div class="wrapper" role="main">
 			<div class="container">
 				<div class="row">
@@ -42,7 +32,10 @@
 					
                                         
                     <div id="conteudo" class="col-md-9">
-                    	<?php foreach ($livros as $livro){ ?>
+                    	<?php 
+                    	if ($livros !== null){
+                    		
+                    	foreach ($livros as $livro){ ?>
 								<div class="artigo" role="article">
 									<!-- div row conteudo -->
 									<div class="row">
@@ -64,7 +57,10 @@
 									</div>
 									<!-- fim da div row conteudo -->
 								</div>
-                     	<?php } ?>
+                     	<?php }
+                     	} else{
+                     		echo "Nenhum livro encontrado!";
+                     	} ?>
 
 
 					</div><!-- div conteudo -->

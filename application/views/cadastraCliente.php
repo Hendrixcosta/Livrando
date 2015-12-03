@@ -1,6 +1,26 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+ //pd($data);
+?>
+
+
 <!-- div main onde vai todo o conteúdo central-->
 <div role="main" class="container col-sm-9 col-sm-push-3">
+        
         <?php
+        
+        //pd($data);
+        echo "<div class=\"alert alert-error\">";   
+        if (isset($data)){
+            echo $data['mensagem'];
+        }
+        echo "</div>";
         function print_form($fname, $lname, $email, $street, $city, $state, $zip) {
             ?>
             <div class="row" >

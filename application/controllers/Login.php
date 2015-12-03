@@ -28,7 +28,7 @@ class Login extends CI_Controller  {
             $this->session->set_userdata('clienteLname', $cliente->getLname());
             $this->session->set_userdata('clienteEmail', $cliente->getEmail());
             }
-            //redirect('Home');
+            redirect('Home');
             
             
         }else {

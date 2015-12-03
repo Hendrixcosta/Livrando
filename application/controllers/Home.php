@@ -17,9 +17,6 @@ class Home extends CI_Controller  {
         $data = array('livros' => $this->livrofactory->getRandon());
         $data['categorias'] =  $this->livrofactory->getCategorias();
         
-        
-        //pd($data);
-        
         $this->load->view('livros_view', $data);
         //$this->load->view('caixadeNavegacao', $data);
         $this->load->view('footer');

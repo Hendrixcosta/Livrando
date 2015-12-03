@@ -60,7 +60,7 @@ class Livrofactory {
             }
             return $livros;
         }
-        return false;
+        return  null;
     }   
 
     public function buscaporCategoria ($palavra_buscada){

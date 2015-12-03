@@ -9,6 +9,7 @@ class Valida extends CI_Controller  {
 
     public function index() {
 
+        $data = array();
         
         //pegando os parametros
            if (isset($_POST["fname"])){$fname = $_POST["fname"];}
@@ -19,19 +20,19 @@ class Valida extends CI_Controller  {
            if (isset($_POST["state"])){$state = $_POST["state"];}
            if (isset($_POST["zip"])){$zip = $_POST["zip"];}
            
-          
+           
            //validacoee
-          if (empty($_POST['fname'])){ $data['mensagem'][]= "O campo do primeiro nome é obrigatório" ;}
-           if (empty($_POST['lname'])){ $data['mensagem'][]= "O campo do ultimo nome é obrigatório" ;}
-           if (empty($_POST['email'])){ $data['mensagem'][]= "O campo do email  é obrigatório" ;}
+          if (empty($_POST['fname'])){ $data[]= "O campo do primeiro nome é obrigatório" ;}
+           if (empty($_POST['lname'])){ $data[]= "O campo do ultimo nome é obrigatório" ;}
+           if (empty($_POST['email'])){ $data[]= "O campo do email deve ser válido" ;}
            //validacaodo email
            if (!filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL)) {
-               $data['mensagem'][]= "O campo do email  deve conter @ obrigatório" ;
+               $data['mensagem']= "O campo do email  deve conter @ obrigatório" ;
            }
            
            
            //se passar em todas as validacoes 
-           if (!isset($data)){
+           if (empty($data)){
                        
                                     $hostname = 'localhost';
                                     $username = 'root';
@@ -75,7 +76,8 @@ class Valida extends CI_Controller  {
                 
                 $data['categorias'] =  $this->livrofactory->getCategorias();
                 $this->load->view('header', $data);
-                $this->load->view('cadastraCliente', $data);
+                //pd($data);
+                $this->load->view('cadastra2', $data);
                 $this->load->view('footer');
                
            }

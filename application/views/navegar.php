@@ -46,8 +46,12 @@
 							
 									<!-- div row conteudo -->
 									<div class="row">
-										<h3><a href="#"> <?php echo $livro->getTitle() ?></a></h3>
-										
+										<h3><a href="#"> <?php echo $livro->getTitle() ?></a>
+										<h4>
+									        by:<a href="http://www.google.com/search?q=<?php echo $livro->getStrFName().' '.$livro->getStrLName() ;?>">
+									            <?php echo $livro->getStrLName();?></a>
+										</h4>
+										</h3>
 										<div class="col-md-2"><br><br>
 											<a href="http://yorktown.cbe.wwu.edu/sandvig/mis314/assignments/bookstore/bookimages/<?php
                                              		echo $livro->getISBN(); ?>.01.LZZZZZZZ.jpg" title="">
@@ -67,7 +71,7 @@
 										<div class="col-md-3" style="padding-left: 40px">
 											
 											<a href="<?php echo $this->config->base_url('Cookie?acao=add&isbn=').$livro->getISBN();?>">
-							                   	<img onclick="ola();" height="50" width=""
+							                   	<img  height="50" width=""
 							                    src="<?php echo base_url('assets/imagens/add.png')?>" class="img-rounded" alt="Imagem Não Encontrada" />
 							                    <p>Adicionar ao Carrinho!
 							                    </a>
